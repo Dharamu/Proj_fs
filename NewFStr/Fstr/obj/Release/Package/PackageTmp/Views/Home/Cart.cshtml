@@ -1,0 +1,276 @@
+﻿@model IEnumerable<MODALobj.Cart>
+
+@{
+    //    Layout = null;
+}
+@{
+    int GrandTotal = 0;
+    int total = 0;
+
+    if (ViewBag.li != null)
+    {
+        foreach (var item in ViewBag.li)
+        {
+            total = item.p_price * item.ct_p_qty;
+            GrandTotal = GrandTotal + total;
+        }
+    }
+
+    int count = 1;
+
+}
+
+<script src="~/Scripts/bootstrap.min.js"></script>
+
+
+<style>
+    .image {
+        width: 150px;
+    }
+</style>
+
+
+
+
+<div>
+
+
+
+    <div class="modalj" id="myModalcart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="min-width:500px">
+        <div class="" role="document" style="width:90%; margin:0 auto   ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Your Cart Items</h5>
+                    <h3>
+                        <span aria-hidden="true">Sub-Total: <span>&#8377</span> @GrandTotal</span>
+                    </h3>
+                </div>
+
+                <div class="modal-body">
+
+                    @{
+                        if (ViewBag.li != null)
+                        {
+                            <div class="table-responsive">
+                                <table class="table" id="tbcrt">
+                                    <thead>
+                                        <tr>
+                                            <td>S.N.</td>
+                                            <td>Product </td>
+                                            <td>Price</td>
+                                            <td>Quantity</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach (var item in ViewBag.li)
+                                        {
+
+                                            <tr>
+                                                <td>@count</td>
+                                                <td>
+                                                    <img src="@item.p_imge" alt="@item.p_Ename" width="100" class="image" />
+                                                    <br />
+                                                    <input type="hidden" class="id" name="pid" value="@item.Product_id" />
+                                                    <button type="button" class="btn btn-warning glyphicon glyphicon-pencil edt" align="center" data-toggle="modal" data-target="#modalForEdit"></button>
+                                                    <button type="button" class="btn btn-danger  glyphicon glyphicon-remove remv"></button>
+
+                                                </td>
+                                                <td class="price">
+                                                    <span class="p">
+                                                        &#8377 @item.p_price/-
+                                                    </span>
+                                                    <span class="p">
+                                                        Kg
+                                                    </span>
+
+                                                </td>
+                                                <td>
+                                                    <span class="quantity">@item.ct_p_qty</span>
+                                                    <span class="wit">
+                                                        Kg
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            count++;
+                                        }
+                                        <tr class="text-right font-weight-bold">
+                                            <td colspan="5">Sub-Total: <span>&#8377</span> @GrandTotal</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                        else
+                        {
+                            <h2>@ViewBag.empty</h2>
+                        }
+                    }
+
+
+                </div>
+                <div class="modal-footer">
+                    @*<button class="btn btn-info jsclick">get js</button>*@
+                    <a href="../" class="btn btn-primary">Continue shopping</a>
+                    <a href="/Home/CheckOut" class="btn btn-success">Checkout Now</a>
+                    @*<button type="submit" class="btn btn-primary">Payment Now</button>*@
+                </div>
+            </div>
+        </div>
+    </div>
+    @*End div of cart modal*@
+
+
+    @*div of edt cart modal*@
+    <div class="modal fade" id="modalForEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="top:20%">
+            <div class="modal-content">
+
+                @using (Html.BeginForm())
+                {
+                    <div class="modal-body">
+                        <div class="row " style="text-align:center">
+                            <div class="col-12 ">
+                                <a>
+                                    <img class="img-fluid image" id="imagecrt" />
+                                </a>
+                                @*<h3 class="name" id="fname"></h3>*@
+                                <h4 class="test" id="fprice"></h4>
+                                <div>
+                                    <input type="hidden" id="id" name="id" value="" />
+                                    <select id="Quantity" class="form-control" name="Quantity" style="margin:0 auto;height:34px"></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    @*End div of edit cart modal*@
+
+
+    @* ----------------------------------------------------- *@
+
+    <div class="modal fade notify" id="modalForEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="top:20%">
+            <div class="modal-content">
+                <div class="modal-body text-green font-weight-bold">
+                    Item Was Deleted Successfully.
+                </div>
+
+            </div>
+        </div>
+    </div>
+    @*End div of edit cart modal*@
+</div>
+
+<script src="~/assets/Js/myScripts.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+
+        $('.jsclick').click(function () {
+            $.ajax({
+                url: "/Home/get",
+                method: "GET",
+                //data: obj,
+                success: function (data) {
+                    //alert(data);
+                    var lineNo = 1;
+                    //markup = "<tr><td>This is row "
+                    //    + lineNo + "</td></tr>";
+                    console.log(data);
+                    //alert(data);
+                    datan = JSON.parse(data);
+                    var type = typeof(datan);
+                    //alert(type);
+                    tableBody = $("table tbody");
+                    tableBody.empty();
+                    $.each(datan, function () {
+                        
+                        markup = "<tr><td>" + lineNo + "</td>"
+                            + 1 + " <td> <img src='" + this.p_imge + "' alt='tem.p_Ename' width='100' class='image' />  <input type='hidden' class='id' name='pid' value='item.Product_id' /> <button type='button' class='btn btn-warning glyphicon glyphicon-pencil edt' align='center' data-toggle='modal' data-target='#modalForEdit'></button> <button type='button' class='btn btn-danger  glyphicon glyphicon-remove remv'></button></td > <td ><span class='p'>&#8377 " + this.p_price + "/-</span><span class='p'> kg </span></td > <td ><span class='quantity'>" + this.ct_p_qty +"</span><span class='wit'> kg </span></td > </tr > ";
+
+                        //alert(markup);
+
+                        lineNo++;
+                                                        
+                        
+
+                        tableBody.append(markup);
+
+                        //alert(this.Product_id);
+                        //alert(this.p_Ename);
+                        //alert(this.p_price);
+                        //alert(this.p_weight_type);
+                        //alert(this.p_imge);
+                        //$.each(this, function (name, value) {
+                        //    console.log(`${name} = ${value}`);
+                        //    //alert(this.Product_id)
+                        //})
+
+
+                    });
+
+
+                    console.log(datan);
+                    //alert(datan);
+                    //alert(datan.Product_id);
+
+                },
+                error: function (err) {
+                    Console.log(err);
+                    alert('some error');
+                }
+            })
+
+        });
+
+
+
+
+
+        $("#tbcrt").on('click', '.remv', function () {
+
+
+            $('#notify p').text('Successfully Removed');
+            if (confirm('Are You Sure to remove this Item')) {
+
+                $(this).closest('tr').remove();
+                var $remv_id = $(this).parent().find('.id').val();
+                //alert($remv_id);
+                var obj = {
+                    id: $remv_id
+                }
+
+                SubmitData(obj);
+
+                location.reload(true);
+                $('.notify').modal().hide(5000);
+            }
+        });
+
+        function SubmitData(obj) {
+            //alert(obj.id);
+            $.ajax({
+                url: "/Home/Remove",
+                method: "POST",
+                data: obj,
+                success: function (res) {
+                    $('.notify').modal().show();
+                    //$('#notify p').text('Successfully Removed').fadeIn().fadeOut(slow);
+                },
+                error: function (err) {
+
+                }
+            })
+        }
+    });
+</script>
+

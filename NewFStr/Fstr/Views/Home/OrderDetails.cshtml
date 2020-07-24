@@ -1,0 +1,155 @@
+﻿@model IEnumerable<MODALobj.OrderDetailObj>
+
+@{
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>OrderDetails</title>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+    <div class="container-fluid">
+
+        <div id="accordion">
+            @foreach (var items in ViewBag.OrdList)
+            {
+                <div class="card">
+                    <div class="card-header">
+                        <a class="card-link" data-toggle="collapse" href="#collapse_@items.Order_Num">
+                            Order-#@items.Order_Num
+                        </a>
+                    </div>
+                    <div id="collapse_@items.Order_Num" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+
+                            <table class="table">
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Order_id)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.p_Ename)
+                                    </th>
+                                    <th>
+                                        
+                                        @Html.DisplayNameFor(model => model.p_imge)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.p_price)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Quantity)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Total)
+                                    </th>
+                                    <th></th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                                    if (item.Order_id == items.Order_Num)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Order_id)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.p_Ename)
+                                            </td>
+                                            <td>
+
+                                                @*@{var img = items.p_price; }*@
+
+                                                <img src="@Url.Content(item.p_imge)" alt="" style="width:100px;" class="img-fluid" />
+
+                                                @*@Html.DisplayFor(modelItem => item.p_imge)*@
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.p_price)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Quantity)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Total)
+                                            </td>
+                                        </tr>
+
+                                    }
+
+                                }
+                                <tr>
+                                    <td colspan="6" class="text-right">Total Amout: - @items.GrandTotalAmout</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    @*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Order_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.p_Ename)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.p_imge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.p_price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Order_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.p_Ename)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.p_imge)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.p_price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total)
+                </td>
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>*@
+    @*</tr>
+            }
+
+        </table>*@
+</body>
+</html>

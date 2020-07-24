@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @*<title>@ViewBag.Title - My ASP.NET Application</title>*@
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+    </style>
+
+
+    <title>Fatkse 24/7</title>
+
+
+    <script src="~/Contents/js/jquery.min.js"></script>
+
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" />
+
+
+    <link href="~/Contents/SiteImages/Article-List.css" rel="stylesheet" />
+
+    <!-- Custom Theme files -->
+    <link href="~/Contents/css/style.css" rel='stylesheet' type='text/css' />
+    <link href="~/Contents/css/ChangedStyle.css" rel="stylesheet" />
+    @*    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>*@
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <!---- start-smoth-scrolling---->
+
+    <script type="text/javascript" src="~/Contents/js/move-top.js"></script>
+    <script type="text/javascript" src="~/Contents/js/easing.js"></script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });</script>
+    <!---- start-smoth-scrolling---->
+    <!----webfonts--->
+    <!---//webfonts--->
+    <!----start-top-nav-script---->
+    <script>
+        $(function () {
+            var pull = $('#pull');
+            menu = $('nav ul');
+            menuHeight = menu.height();
+            $(pull).on('click', function (e) {
+                e.preventDefault();
+                menu.slideToggle();
+            });
+            $(window).resize(function () {
+                var w = $(window).width();
+                if (w > 320 && menu.is(':hidden')) {
+                    menu.removeAttr('style');
+                }
+            });
+        });</script>
+    <!----//End-top-nav-script---->
+    <style>
+        #elseBtn a {
+            color: black;
+            text-decoration: underline;
+        }
+
+        .sgnuName {
+            color: black;
+            text-decoration: underline;
+            padding: 10px;
+            border: 2px solid royalblue;
+            border-radius: 30px;
+        }
+
+
+        #elseBtn .sgnu {
+            color: black;
+            text-decoration: underline;
+            padding: 10px;
+            border: 2px solid royalblue;
+            border-radius: 30px;
+        }
+
+            #elseBtn .sgnu:hover {
+                color: white;
+                text-decoration: underline;
+                padding: 11px;
+                background: royalblue;
+                border-radius: 30px;
+            }
+
+        #elseBtn {
+            display: Block;
+            position: absolute;
+            border-radius: 50%;
+            right: 10px;
+            top: 35px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            /*background-color: red;*/
+            color: white;
+            cursor: pointer;
+            /*padding: 15px;*/
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        #myBtn1 {
+            display: Block;
+            position: absolute;
+            border-radius: 50%;
+            right: 1%;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            /*background-color: red;*/
+            color: white;
+            cursor: pointer;
+            padding: 17px 10px 1px 10px;
+            text-decoration: none;
+        }
+
+        #myBtn {
+            display: Block;
+            position: fixed;
+            top: 90%;
+            /*bottom: 20px;*/
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+            #myBtn .badge {
+                position: absolute;
+                top: -10px;
+                right: -10px;
+                z-index: 5;
+                padding: 5px 10px;
+                border-radius: 50%;
+                background-color: black;
+                color: white;
+            }
+    </style>
+    <style>
+        .example_d {
+            color: #ff0000 !important;
+            text-transform: uppercase;
+            background: #ffffff;
+            padding: 3%;
+            border: 1px solid #20bf6b !important;
+            border-radius: 20px;
+            display: inline-block;
+            transition: all 0.3s ease 0s;
+        }
+
+            .example_d:hover {
+                color: #20bf6b !important;
+                border-radius: 50px;
+                text-decoration: none;
+                border-color: #ff0000 !important;
+                transition: all 0.3s ease 0s;
+            }
+
+        .image {
+            width: 150px;
+        }
+
+        ul.crt li {
+            display: inline-block;
+        }
+
+
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            right: 0;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #f1f1f1
+                }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        @@media (max-width: 468px) {
+            .logo img {
+                width: 50%;
+            }
+        }
+
+    </style>
+
+
+
+
+
+</head>
+<body>
+    <!----- start-header---->
+    <div id="home" class="header">
+        <div class="top-header">
+            <div class="container">
+                <div class="logo">
+                    <a href="../"><img src="~/assets/img/logo.png" class="img-fluid " title="Fatakse 24/7" /></a>
+                </div>
+                <!----start-top-nav---->
+
+                @if (User.Identity.IsAuthenticated)
+                {
+
+
+                    <div id="myBtn1" class="dropdown">
+                        <span class="glyphicon glyphicon-user sgnuName">
+                            @User.Identity.Name
+                        </span>
+                        @*<span class="glyphicon glyphicon-circle-arrow-down" style="position:absolute;top:5px;right:1px"></span>*@
+
+                        <div class="dropdown-content">
+                            <a href="/Home/Cart">Go to cart</a>
+                            <a href="/Home/OrderDetails">My Order List</a>
+                            @Html.ActionLink("Logout", "Logout", "Login")
+                        </div>
+
+                    </div>
+                }
+                else
+                {
+                    <div id="elseBtn">
+                        @Html.ActionLink("Sign In", "Index", "Login")
+                        <span style="color:black">|</span>
+                        @Html.ActionLink("Sign Up", "Index", "SignUp", new { }, new { @class = "sgnu" })
+                    </div>
+                }
+
+                <div class="clearfix"> </div>
+            </div>
+
+
+            @*                <img src="~/assets/img/logo.png" alt="Alternate Text" width="50" />*@
+
+
+        </div>
+    </div>
+    <!----- //End-header---->
+
+
+
+
+    <div class="container-fluidd body-content">
+        @RenderBody()
+
+
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)*@
+</body>
+</html>

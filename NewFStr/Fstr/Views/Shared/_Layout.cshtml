@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+
+        <div id="remove it further">
+            <div class="col-6 col-sm-6 col-md-4 item">
+                <a href="#"><img class="img-fluid" src="~/assets/images/patato.jpg" /></a>
+                <h3 class="name">Potato (आलू) </h3>
+                <h4> 20/- kg.</h4>
+                @*<div class="button_cont" align="center">
+                <a class="example_d" href="add-website-here" target="_blank" rel="nofollow noopener">Add Call to Action</a>
+            </div>*@
+
+            </div>
+            <div class="col-6 col-sm-6 col-md-4 item">
+                <a href="#"><img class="img-fluid" src="~/assets/images/onion.jpg" /></a>
+                <h3 class="name">Onion (प्याज)</h3>
+                <h4> 20/- kg.</h4>
+                @*<a href="#" class="action"><i class="fa fa-arrow-circle-right"></i></a>*@
+            </div>
+            <div class="col-6 col-sm-6 col-md-4 item">
+                <a href="#"><img class="img-fluid" src="~/assets/images/tomato.jpg" /></a>
+                <h3 class="name">Tamato (टमाटर)</h3>
+                <h4> 20/- kg.</h4>@*<a href="#" class="action"><i class="fa fa-arrow-circle-right"></i></a>*@
+            </div>
+            <div class="col-6 col-sm-6 col-md-4 item">
+                <a href="#"><img class="img-fluid" src="~/assets/images/Brinjal.jpg" /></a>
+                <h3 class="name">Brinjal (बैंगन)</h3>
+                <h4> 20/- kg.</h4>@*<a href="#" class="action"><i class="fa fa-arrow-circle-right"></i></a>*@
+            </div>
+            <div class="col-6 col-sm-6 col-md-4 item">
+                <a href="#"><img class="img-fluid" src="~/assets/images/arbi.jpg" /></a>
+                <h3 class="name">Arbi (अरबी)</h3>
+                <h4> 20/- kg.</h4>@*<a href="#" class="action"><i class="fa fa-arrow-circle-right"></i></a>*@
+            </div>
+            <div class="col-6 col-sm-6 col-md-4 item">
+                <a href="#"><img class="img-fluid" src="~/assets/images/capsicum_green.jpg" /></a>
+                <h3 class="name">Green-Capsicum (शिमला-मिर्च)</h3>
+                <h4> 20/- kg.</h4>@*<a href="#" class="action"><i class="fa fa-arrow-circle-right"></i></a>*@
+            </div>
+            <div class="col-6 col-sm-6 col-md-4 item">
+                <a href="#"><img class="img-fluid" src="~/assets/images/cucumber.jpg" /></a>
+                <h3 class="name">Cucumber (खीरा) </h3>
+                <h4> 20/- kg.</h4>@*<a href="#" class="action"><i class="fa fa-arrow-circle-right"></i></a>*@
+            </div>
+            <div class="col-6 col-sm-6 col-md-4 item">
+                <a href="#"><img class="img-fluid" src="~/assets/images/fresh-bittermelon.jpg" /></a>
+                <h3 class="name">BITTER GOURD (करेला)</h3>
+                <h4> 20/- kg.</h4>@*<a href="#" class="action"><i class="fa fa-arrow-circle-right"></i></a>*@
+            </div>
+            <div class="col-6 col-sm-6 col-md-4 item">
+                <a href="#"><img class="img-fluid" src="~/assets/images/garlic.png" /></a>
+                <h3 class="name">Garlic (लहसुन)</h3>
+                <h4> 20/- kg.</h4>@*<a href="#" class="action"><i class="fa fa-arrow-circle-right"></i></a>*@
+            </div>
+            <div class="col-6 col-sm-6 col-md-4 item">
+                <a href="#"><img class="img-fluid" src="~/assets/images/ghiya.jpg" /></a>
+                <h3 class="name">bottle gourd / Ghiya (लौकी)</h3>
+                <h4> 20/- kg.</h4>@*<a href="#" class="action"><i class="fa fa-arrow-circle-right"></i></a>*@
+            </div>
+            <div class="col-6 col-sm-6 col-md-4 item">
+                <a href="#"><img class="img-fluid" src="~/assets/images/HariMirch.jpg" /></a>
+                <h3 class="name">
+                    green chilli (हरी मिर्च)
+                </h3>
+                <h4> 20/- kg.</h4>
+                @*<a href="#" class="action"><i class="fa fa-arrow-circle-right"></i></a>*@
+            </div>
+            <div class="col-6 col-sm-6 col-md-4 item">
+                <a href="#"><img class="img-fluid" src="~/assets/images/tori.jpg" /></a>
+                <h3 class="name">Ridge Gourd (तुरई)</h3>
+                <h4> 20/- kg.</h4>@*<a href="#" class="action"><i class="fa fa-arrow-circle-right"></i></a>*@
+            </div>
+            <div class="col-6 col-sm-6 col-md-4 item">
+                <a href="#"><img class="img-fluid" src="~/assets/images/raw-mango.jpeg" /></a>
+                <h3 class="name">
+                    Row-Mango (कच्चा आम)
+                </h3>
+                <h4> 20/- kg.</h4>@*<a href="#" class="action"><i class="fa fa-arrow-circle-right"></i></a>*@
+            </div>
+            <div class="col-6 col-sm-6 col-md-4 item">
+                <a href="#"><img class="img-fluid" src="~/assets/images/lady-finger.jpg" /></a>
+                <h3 class="name">Lady-Finger (भिन्डी)</h3>
+                <h4> 20/- kg.</h4>@*<a href="#" class="action"><i class="fa fa-arrow-circle-right"></i></a>*@
+            </div>
+            <div class="col-6 col-sm-6 col-md-4 item">
+                <a href="#"><img class="img-fluid" src="~/assets/images/dhaniya.png" /></a>
+                <h3 class="name">Coriander (धनिया)</h3>
+                <h4> 20/- kg.</h4>@*<a href="#" class="action"><i class="fa fa-arrow-circle-right"></i></a>*@
+            </div>
+            <div class="col-6 col-sm-6 col-md-4 item">
+                <a href="#"><img class="img-fluid" src="~/assets/images/Lemon.jpg" /></a>
+                <h3 class="name">Lemon (नींबू)</h3>
+                <h4> 20/- kg.</h4>
+                @*<a href="#" class="action"><i class="fa fa-arrow-circle-right"></i></a>*@
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
