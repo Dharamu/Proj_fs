@@ -121,7 +121,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\ControlPanel\Controllers\HomeController.cs" />
+    <Compile Include="Areas\ControlPanel\Controllers\ProductController.cs" />
     <Compile Include="Areas\ControlPanel\ControlPanelAreaRegistration.cs" />
+    <Compile Include="Controllers\Enquiry.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SignUpController.cs" />
@@ -138,6 +140,10 @@
     <Content Include="assets\css\Deshboard\dashboard.css" />
     <Content Include="assets\css\Registration-Form-with-Photo.css" />
     <Content Include="assets\css\styles.css" />
+    <Content Include="assets\images\49.png" />
+    <Content Include="assets\images\50.png" />
+    <Content Include="assets\images\51.png" />
+    <Content Include="assets\images\52.png" />
     <Content Include="assets\images\arbi.jpg" />
     <Content Include="assets\images\brinjal-1.jpg" />
     <Content Include="assets\images\Brinjal.jpg" />
@@ -151,10 +157,12 @@
     <Content Include="assets\images\garlic.png" />
     <Content Include="assets\images\ghiya.jpg" />
     <Content Include="assets\images\ghiya1.jpeg" />
+    <Content Include="assets\images\ghiya1.jpg" />
     <Content Include="assets\images\ginger-adrak.jpg" />
     <Content Include="assets\images\HariMirch.jpg" />
     <Content Include="assets\images\lady-finger.jpg" />
     <Content Include="assets\images\ladyfinger.jpg" />
+    <Content Include="assets\images\ladyfingerN.jpg" />
     <Content Include="assets\images\Lemon.jpg" />
     <Content Include="assets\images\nashik-onion-500x500.jpg" />
     <Content Include="assets\images\onion.jpg" />
@@ -165,6 +173,7 @@
     <Content Include="assets\images\pumpki.jpg" />
     <Content Include="assets\images\raw-mango.jpeg" />
     <Content Include="assets\images\roma-tomatoes.jpg" />
+    <Content Include="assets\images\row-mango.jpg" />
     <Content Include="assets\images\tomato.jpg" />
     <Content Include="assets\images\tomato1.jpg" />
     <Content Include="assets\images\tori.jpg" />
@@ -326,6 +335,15 @@
     <Content Include="Areas\ControlPanel\Views\_ViewStart.cshtml" />
     <Content Include="Areas\ControlPanel\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\ControlPanel\Views\Home\Index.cshtml" />
+    <Content Include="Areas\ControlPanel\Views\Product\Index.cshtml" />
+    <Content Include="Areas\ControlPanel\Views\Home\test.cshtml" />
+    <Content Include="Areas\ControlPanel\Views\Home\NewOrders.cshtml" />
+    <Content Include="Areas\ControlPanel\Views\Product\Create.cshtml" />
+    <Content Include="Areas\ControlPanel\Views\Product\Edit1.cshtml" />
+    <Content Include="Areas\ControlPanel\Views\Product\Edit.cshtml" />
+    <Content Include="Areas\ControlPanel\Views\Product\Details.cshtml" />
+    <Content Include="Areas\ControlPanel\Views\Product\Toggle.cshtml" />
+    <Content Include="assets\images\tomato.psd" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />

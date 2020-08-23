@@ -1,0 +1,75 @@
+﻿@model MODALobj.newProduct
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/ControlPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>newProduct</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Product_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.p_Ename)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.p_Ename)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.p_price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.p_price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.p_weight_type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.p_weight_type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.p_imge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.p_imge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.p_hname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.p_hname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

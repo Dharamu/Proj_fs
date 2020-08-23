@@ -13,6 +13,11 @@
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
+    <style>
+        .ovl{
+          overflow:auto;  
+        }
+    </style>
 </head>
 <body>
 
@@ -27,7 +32,7 @@
                             Order-#@items.Order_Num
                         </a>
                     </div>
-                    <div id="collapse_@items.Order_Num" class="collapse" data-parent="#accordion">
+                    <div id="collapse_@items.Order_Num" class="collapse ovl" data-parent="#accordion">
                         <div class="card-body">
 
                             <table class="table">

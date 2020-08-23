@@ -7,7 +7,8 @@ using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
 using System.Web.Security;
-
+using System.Net.Mail;
+using System.Net;
 
 namespace Fstr.Controllers
 {
@@ -20,6 +21,15 @@ namespace Fstr.Controllers
             List<newProduct> list = new List<newProduct>();
 
             list = Blproduct.NewProductGetItems();
+
+            ViewBag.tfive = (from li in list
+                            where li.Category.Equals("Vegetable")
+                            select li).Take(5).ToList();
+            foreach (var item in ViewBag.tfive)
+            {
+                var lis = item.Product_id;
+
+            }
 
             if (User.Identity.IsAuthenticated)
             {
@@ -131,7 +141,7 @@ namespace Fstr.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(int id, double Quantity)
+        public ActionResult Index(int id, int Quantity)
         {
             int Uid = Convert.ToInt32(Session["UserId"]);
             int Product_id = id;
@@ -183,6 +193,12 @@ namespace Fstr.Controllers
             }
         }
 
+        [ActionName("SendMails")]
+        //[HttpPost]
+        public ActionResult Index(string name)
+        {
+            return RedirectToAction("Index");
+        }
 
         public JsonResult get()
         {
@@ -291,7 +307,6 @@ namespace Fstr.Controllers
             }
         }
 
-        [HttpPost]
         public ActionResult OrderDetails()
         {
             int Uid = Convert.ToInt32(Session["UserId"]);
@@ -320,10 +335,15 @@ namespace Fstr.Controllers
 
             List<CheckOrd> Ord_list = new List<CheckOrd>();
             Ord_list = Blproduct.GetCheckOrd();
+            var list = (from ord in Ord_list
+                        where ord.Status == "Not Delevered"
+                        select ord).ToList();
+
+
             return View(Ord_list);
         }
 
-        
+
         public ActionResult DeshBoard()
         {
             return View();
@@ -361,6 +381,57 @@ namespace Fstr.Controllers
 
             //return View();
         }
+
+        public ActionResult SendMail(FormCollection collection)
+        {
+
+            try
+            {
+
+                //clsMail cust = new clsMail();
+                //cust.Name = collection[0];
+                //cust.Email = collection[1];
+                //cust.PhoneNo = collection[2];
+                //cust.Ord_Massage = collection[3];
+                //cust.Address = collection[3];
+
+
+                //MailMessage mm = new MailMessage("dhrohit256@gmail.com", "dhrohit256@gmail.com");
+                ////mm.Subject = model.Subject;
+                //mm.Subject = "Limbone Inquiry";
+                //var msg = "This message is sent by: - " + cust.Name + ", Email Id : - " + cust.Email + " , his contact no is: - " + cust.PhoneNo + " , his Address is: - " + cust.Address + " Inquiry /Order : - '" + cust.Ord_Massage + "'";
+                //mm.Body = msg;
+                //mm.IsBodyHtml = true;
+
+                //SmtpClient smtp = new SmtpClient();
+                //smtp.Host = "smtp.gmail.com";
+                //smtp.Port = 587;
+                //smtp.EnableSsl = true;
+
+                //NetworkCredential nc = new NetworkCredential("dhrohit256@gmail.com", "Rohit@123");
+                //smtp.UseDefaultCredentials = true;
+                //smtp.Credentials = nc;
+                //smtp.Send(mm);
+
+                //Enquiry enq = new Enquiry();
+                //enq.Name = cust.Name;
+                //enq.email_id = cust.Email;
+                //enq.phone = cust.PhoneNo;
+                //enq.message = cust.Massage;
+                //enq.IsBlock = "No";
+                //BLenquiry.AddEnquiry(enq);
+
+                return View("Index");
+            }
+            catch (Exception)
+            {
+
+                return View("Index");
+            }
+
+
+        }
+
 
     }
 }

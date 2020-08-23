@@ -30,9 +30,9 @@
             max-width: 150px;
         }
     }
-    .edt , .remv {
-        border-radius:20px;
 
+    .edt, .remv {
+        border-radius: 20px;
     }
 </style>
 
@@ -47,11 +47,11 @@
         <div class="" role="document" style="width:90%; margin:0 auto   ">
             <div class="modal-content">
                 @*<div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Your Cart Items</h5>
-            <h3>
-                <span aria-hidden="true">Sub-Total: <span>&#8377</span> @GrandTotal</span>
-            </h3>
-        </div>*@
+                        <h5 class="modal-title" id="exampleModalLabel">Your Cart Items</h5>
+                        <h3>
+                            <span aria-hidden="true">Sub-Total: <span>&#8377</span> @GrandTotal</span>
+                        </h3>
+                    </div>*@
                 <div class="modal-header">
                     <h4 class="modal-title" id="exampleModalLabel">Your Cart Items</h4>
                     <div class="close" aria-label="Close">
@@ -85,7 +85,7 @@
                                             <tr>
                                                 <td>@count</td>
                                                 <td>
-                                                    <img src="@item.p_imge" alt="@item.p_Ename"  class="pimage img-fluid img-responsive" />
+                                                    <img src="@item.p_imge" alt="@item.p_Ename" class="pimage img-fluid img-responsive" />
                                                     <br />
 
                                                 </td>
@@ -146,7 +146,7 @@
 
     @*div of edt cart modal*@
     <div class="modal fade" id="modalForEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document" style="top:20%">
+        <div class="modal-dialog" role="document" style="top:30%; margin:0 auto">
             <div class="modal-content">
 
                 @using (Html.BeginForm())
@@ -159,10 +159,16 @@
                                 </a>
                                 @*<h3 class="name" id="fname"></h3>*@
                                 <h4 class="test" id="fprice"></h4>
-                                <div>
+                                <div class="" style="background-color:white; height:100px">
                                     <input type="hidden" id="id" name="id" value="" />
-                                    <select id="Quantity" class="form-control" name="Quantity" style="margin:0 auto;height:34px"></select>
+                                    <input type="button" name="Sub" class="Sub" value="Sub" />
+                                    <input type="number" name="Quantity" class="qty" value="1" min="1" max="50" autocomplete="off" />
+                                    <input type="button" name="Add" class="Add" value="Add" />
                                 </div>
+                                @*<div>
+                                        <input type="hidden" id="id" name="id" value="" />
+                                        <select id="Quantity" class="form-control" name="Quantity" style="margin:0 auto;height:34px"></select>
+                                    </div>*@
                             </div>
                         </div>
                     </div>
@@ -275,7 +281,7 @@
                 SubmitData(obj);
 
                 location.reload(true);
-                $('.notify').modal().hide(5000);
+                $('.notify').modal().delay(5000).fadeOut();
             }
         });
 
@@ -286,7 +292,7 @@
                 method: "POST",
                 data: obj,
                 success: function (res) {
-                    $('.notify').modal().show();
+                    $('.notify').modal().fadeIn();
                     //$('#notify p').text('Successfully Removed').fadeIn().fadeOut(slow);
                 },
                 error: function (err) {
@@ -294,6 +300,39 @@
                 }
             })
         }
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        var $qty = $('.qty').val();
+        $(".Add").click(function () {
+            $qty = $('.qty').val();
+            if ($qty > 0 && $qty < 50) {
+
+                $inc = parseInt($qty) + parseInt(1);
+                $qty = $('.qty').val($inc).val();
+            }
+            else {
+                alert("Quantity Exeeds 50")
+            }
+
+        });
+        $(".Sub").click(function () {
+            $qty = $('.qty').val();
+            if ($qty > 1) {
+                $inc = parseInt($qty) - parseInt(1);
+                $qty = $('.qty').val($inc).val();
+            }
+            else {
+                alert("this is minimum value")
+            }
+        });
+        //$('.qty').keypress(function () {
+        //    var $v = $('.qty').val();
+
+        //    $qty = $('.qty').val($v);
+
+        //})
     });
 </script>
 

@@ -6,11 +6,50 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>F:\rohit\AspApp\AAA_PUBLISH\t</_PublishTargetUrl>
+    <_PublishTargetUrl>F:\rohit\AspApp\AAA_PUBLISH\fatakse\5</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
+    <File Include="Areas/ControlPanel/Views/Home/Index.cshtml">
+      <publishTime>07/30/2020 19:11:47</publishTime>
+    </File>
+    <File Include="Areas/ControlPanel/Views/Home/NewOrders.cshtml">
+      <publishTime>07/30/2020 20:33:58</publishTime>
+    </File>
+    <File Include="Areas/ControlPanel/Views/Home/test.cshtml">
+      <publishTime>08/06/2020 13:25:10</publishTime>
+    </File>
+    <File Include="Areas/ControlPanel/Views/Product/Create.cshtml">
+      <publishTime>08/01/2020 20:32:29</publishTime>
+    </File>
+    <File Include="Areas/ControlPanel/Views/Product/Delete.cshtml">
+      <publishTime>08/04/2020 16:58:27</publishTime>
+    </File>
+    <File Include="Areas/ControlPanel/Views/Product/Details.cshtml">
+      <publishTime>08/03/2020 10:17:12</publishTime>
+    </File>
+    <File Include="Areas/ControlPanel/Views/Product/Edit.cshtml">
+      <publishTime>08/05/2020 23:11:38</publishTime>
+    </File>
+    <File Include="Areas/ControlPanel/Views/Product/Edit1.cshtml">
+      <publishTime>08/02/2020 14:23:19</publishTime>
+    </File>
+    <File Include="Areas/ControlPanel/Views/Product/Index.cshtml">
+      <publishTime>08/05/2020 11:32:49</publishTime>
+    </File>
+    <File Include="Areas/ControlPanel/Views/Product/Toggle.cshtml">
+      <publishTime>08/04/2020 16:58:27</publishTime>
+    </File>
+    <File Include="Areas/ControlPanel/Views/Shared/_Layout.cshtml">
+      <publishTime>07/30/2020 19:20:45</publishTime>
+    </File>
+    <File Include="Areas/ControlPanel/Views/web.config">
+      <publishTime>07/23/2020 19:12:11</publishTime>
+    </File>
+    <File Include="Areas/ControlPanel/Views/_ViewStart.cshtml">
+      <publishTime>07/23/2020 19:47:19</publishTime>
+    </File>
     <File Include="assets/css/Article-List.css">
-      <publishTime>06/13/2020 11:01:10</publishTime>
+      <publishTime>07/30/2020 12:49:42</publishTime>
     </File>
     <File Include="assets/css/bootstrap.min.css">
       <publishTime>06/13/2020 11:01:10</publishTime>
@@ -30,95 +69,119 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="assets/css/styles.css">
       <publishTime>06/13/2020 11:01:10</publishTime>
     </File>
+    <File Include="assets/images/49.png">
+      <publishTime>08/07/2020 17:02:51</publishTime>
+    </File>
+    <File Include="assets/images/50.png">
+      <publishTime>08/07/2020 17:02:51</publishTime>
+    </File>
+    <File Include="assets/images/51.png">
+      <publishTime>08/07/2020 17:02:51</publishTime>
+    </File>
+    <File Include="assets/images/52.png">
+      <publishTime>08/07/2020 17:02:51</publishTime>
+    </File>
     <File Include="assets/images/arbi.jpg">
-      <publishTime>06/13/2020 11:01:10</publishTime>
+      <publishTime>08/07/2020 12:46:47</publishTime>
     </File>
     <File Include="assets/images/brinjal-1.jpg">
-      <publishTime>06/13/2020 11:01:10</publishTime>
+      <publishTime>08/07/2020 12:46:06</publishTime>
     </File>
     <File Include="assets/images/Brinjal.jpg">
-      <publishTime>06/13/2020 11:01:10</publishTime>
+      <publishTime>08/07/2020 12:46:23</publishTime>
     </File>
     <File Include="assets/images/capsicum_green.jpg">
-      <publishTime>06/13/2020 11:01:10</publishTime>
+      <publishTime>08/07/2020 12:45:33</publishTime>
     </File>
     <File Include="assets/images/cucumber.jpg">
-      <publishTime>06/13/2020 11:01:10</publishTime>
+      <publishTime>08/07/2020 12:45:17</publishTime>
     </File>
     <File Include="assets/images/cucumbers.jpg">
-      <publishTime>06/13/2020 11:01:10</publishTime>
+      <publishTime>08/07/2020 12:44:53</publishTime>
     </File>
     <File Include="assets/images/dhaniya.png">
-      <publishTime>06/13/2020 11:01:10</publishTime>
+      <publishTime>08/07/2020 12:44:38</publishTime>
     </File>
     <File Include="assets/images/fresh-bittermelon.jpg">
-      <publishTime>06/13/2020 11:01:10</publishTime>
+      <publishTime>08/07/2020 12:43:24</publishTime>
     </File>
     <File Include="assets/images/fresh_lemon.jpg">
-      <publishTime>06/13/2020 11:01:10</publishTime>
+      <publishTime>08/07/2020 12:43:55</publishTime>
     </File>
     <File Include="assets/images/garden-fresh-brinjal.png">
-      <publishTime>06/13/2020 11:01:10</publishTime>
+      <publishTime>08/07/2020 12:43:07</publishTime>
     </File>
     <File Include="assets/images/garlic.png">
-      <publishTime>06/13/2020 11:01:10</publishTime>
+      <publishTime>08/07/2020 12:42:49</publishTime>
     </File>
     <File Include="assets/images/ghiya.jpg">
-      <publishTime>06/13/2020 11:01:10</publishTime>
+      <publishTime>08/07/2020 12:42:12</publishTime>
     </File>
     <File Include="assets/images/ghiya1.jpeg">
       <publishTime>06/13/2020 11:01:10</publishTime>
     </File>
+    <File Include="assets/images/ghiya1.jpg">
+      <publishTime>08/07/2020 12:41:54</publishTime>
+    </File>
     <File Include="assets/images/ginger-adrak.jpg">
-      <publishTime>06/13/2020 11:01:11</publishTime>
+      <publishTime>08/07/2020 12:41:37</publishTime>
     </File>
     <File Include="assets/images/HariMirch.jpg">
-      <publishTime>06/13/2020 11:01:11</publishTime>
+      <publishTime>08/07/2020 12:41:17</publishTime>
     </File>
     <File Include="assets/images/lady-finger.jpg">
-      <publishTime>06/13/2020 11:01:11</publishTime>
+      <publishTime>08/07/2020 12:40:15</publishTime>
     </File>
     <File Include="assets/images/ladyfinger.jpg">
       <publishTime>06/13/2020 11:01:11</publishTime>
     </File>
+    <File Include="assets/images/ladyfingerN.jpg">
+      <publishTime>08/07/2020 12:40:56</publishTime>
+    </File>
     <File Include="assets/images/Lemon.jpg">
-      <publishTime>06/13/2020 11:01:11</publishTime>
+      <publishTime>08/07/2020 12:39:54</publishTime>
     </File>
     <File Include="assets/images/nashik-onion-500x500.jpg">
-      <publishTime>06/13/2020 11:01:11</publishTime>
+      <publishTime>08/07/2020 12:39:36</publishTime>
     </File>
     <File Include="assets/images/onion.jpg">
-      <publishTime>06/13/2020 11:01:11</publishTime>
+      <publishTime>08/07/2020 12:39:13</publishTime>
     </File>
     <File Include="assets/images/Onions_Red_Hero-1.jpg">
-      <publishTime>06/13/2020 11:01:11</publishTime>
+      <publishTime>08/07/2020 12:38:22</publishTime>
     </File>
     <File Include="assets/images/Onions_Red_Hero.jpg">
-      <publishTime>06/13/2020 11:01:11</publishTime>
+      <publishTime>08/07/2020 12:38:44</publishTime>
     </File>
     <File Include="assets/images/patato.jpg">
-      <publishTime>06/13/2020 11:01:11</publishTime>
+      <publishTime>08/07/2020 12:37:56</publishTime>
     </File>
     <File Include="assets/images/potatoes.jpg">
-      <publishTime>06/13/2020 11:01:11</publishTime>
+      <publishTime>08/07/2020 12:37:29</publishTime>
     </File>
     <File Include="assets/images/pumpki.jpg">
-      <publishTime>06/13/2020 11:01:11</publishTime>
+      <publishTime>08/07/2020 12:36:48</publishTime>
     </File>
     <File Include="assets/images/raw-mango.jpeg">
       <publishTime>06/13/2020 11:01:11</publishTime>
     </File>
     <File Include="assets/images/roma-tomatoes.jpg">
-      <publishTime>06/13/2020 11:01:11</publishTime>
+      <publishTime>08/07/2020 12:34:38</publishTime>
+    </File>
+    <File Include="assets/images/row-mango.jpg">
+      <publishTime>08/07/2020 12:36:03</publishTime>
     </File>
     <File Include="assets/images/tomato.jpg">
-      <publishTime>06/13/2020 11:01:11</publishTime>
+      <publishTime>08/07/2020 12:47:15</publishTime>
+    </File>
+    <File Include="assets/images/tomato.psd">
+      <publishTime>08/07/2020 12:47:22</publishTime>
     </File>
     <File Include="assets/images/tomato1.jpg">
-      <publishTime>06/13/2020 11:01:11</publishTime>
+      <publishTime>08/07/2020 12:34:02</publishTime>
     </File>
     <File Include="assets/images/tori.jpg">
-      <publishTime>06/13/2020 11:01:12</publishTime>
+      <publishTime>08/07/2020 12:33:23</publishTime>
     </File>
     <File Include="assets/img/6642488-fresh-vegetables-banner-for-your-text.jpg">
       <publishTime>06/13/2020 11:01:12</publishTime>
@@ -178,7 +241,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/13/2020 11:01:13</publishTime>
     </File>
     <File Include="assets/Js/myScripts.js">
-      <publishTime>06/15/2020 18:27:18</publishTime>
+      <publishTime>07/28/2020 15:13:22</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>09/10/2013 16:29:20</publishTime>
@@ -187,22 +250,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/BL.dll">
-      <publishTime>07/16/2020 19:06:45</publishTime>
+      <publishTime>08/07/2020 19:02:32</publishTime>
     </File>
     <File Include="bin/BL.pdb">
-      <publishTime>07/16/2020 19:06:45</publishTime>
+      <publishTime>08/07/2020 19:02:32</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>07/16/2020 19:06:43</publishTime>
+      <publishTime>08/07/2020 19:02:31</publishTime>
     </File>
     <File Include="bin/DAL.pdb">
-      <publishTime>07/16/2020 19:06:43</publishTime>
+      <publishTime>08/07/2020 19:02:31</publishTime>
     </File>
     <File Include="bin/Fstr.dll">
-      <publishTime>07/17/2020 18:26:39</publishTime>
+      <publishTime>08/07/2020 19:02:35</publishTime>
     </File>
     <File Include="bin/Fstr.pdb">
-      <publishTime>07/17/2020 18:26:39</publishTime>
+      <publishTime>08/07/2020 19:02:35</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>05/24/2018 13:38:22</publishTime>
@@ -211,10 +274,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/25/2012 11:48:56</publishTime>
     </File>
     <File Include="bin/MODALobj.dll">
-      <publishTime>07/16/2020 19:06:39</publishTime>
+      <publishTime>08/07/2020 19:02:29</publishTime>
     </File>
     <File Include="bin/MODALobj.pdb">
-      <publishTime>07/16/2020 19:06:39</publishTime>
+      <publishTime>08/07/2020 19:02:29</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>11/09/2019 00:56:44</publishTime>
@@ -760,7 +823,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/13/2020 11:01:09</publishTime>
     </File>
     <File Include="Contents/SiteImages/Article-List.css">
-      <publishTime>06/13/2020 11:01:09</publishTime>
+      <publishTime>07/30/2020 12:57:16</publishTime>
     </File>
     <File Include="Contents/SiteImages/building.jpg">
       <publishTime>06/13/2020 11:01:09</publishTime>
@@ -841,22 +904,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/13/2020 10:44:08</publishTime>
     </File>
     <File Include="Views/Home/Cart.cshtml">
-      <publishTime>07/15/2020 10:18:43</publishTime>
+      <publishTime>08/01/2020 15:04:57</publishTime>
     </File>
     <File Include="Views/Home/CheckOrder.cshtml">
-      <publishTime>07/08/2020 20:42:18</publishTime>
+      <publishTime>07/30/2020 12:22:40</publishTime>
     </File>
     <File Include="Views/Home/CheckOut.cshtml">
-      <publishTime>07/17/2020 18:23:24</publishTime>
+      <publishTime>08/01/2020 15:10:03</publishTime>
     </File>
     <File Include="Views/Home/DeshBoard.cshtml">
       <publishTime>07/08/2020 18:03:15</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>07/17/2020 17:43:58</publishTime>
+      <publishTime>08/07/2020 17:29:02</publishTime>
     </File>
     <File Include="Views/Home/OrderDetails.cshtml">
-      <publishTime>07/17/2020 17:29:19</publishTime>
+      <publishTime>07/28/2020 17:07:53</publishTime>
     </File>
     <File Include="Views/Login/Index.cshtml">
       <publishTime>07/17/2020 16:13:45</publishTime>
@@ -877,7 +940,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/13/2020 17:27:22</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutN.cshtml">
-      <publishTime>07/17/2020 16:04:05</publishTime>
+      <publishTime>08/07/2020 18:33:01</publishTime>
     </File>
     <File Include="Views/SignUp/Index.cshtml">
       <publishTime>06/21/2020 16:31:43</publishTime>

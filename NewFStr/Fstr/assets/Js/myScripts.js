@@ -103,7 +103,7 @@ $(document).ready(function () {
 
     $(".edt").click(function () {
         //alert('jbjb');
-        var $Image = $(this).parent().parent().find('.image').attr('src');
+        var $Image = $(this).parent().parent().find('td .pimage').attr('src');
         var $id = $(this).parent('td').find('input').val();
         var $price = $(this).parent().parent().find('td .price, .p').text().trim();
         var $quantity = $(this).parent().parent().find('td .quantity').text();

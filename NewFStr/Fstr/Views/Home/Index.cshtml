@@ -4,335 +4,511 @@
 
 
 @{
-    
+
 
 }
 
+<style>
 
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
 
-<html>
+    input[type=number] {
+        width: 100px;
+        text-align: center;
+        padding: 5px 0;
+        font-weight: bold;
+        border-radius: 40px;
+    }
 
-<body>
+    .mcon {
+        margin-top: 10%;
+    }
 
-    <!----start-slider-script---->
-    <script src="~/Contents/js/responsiveslides.min.js"></script>
-    <script>
-        // You can also use "$(window).load(function() {"
-        $(function () {
-            // Slideshow 4
-            $("#slider4").responsiveSlides({
-                auto: true,
-                pager: true,
-                nav: true,
-                speed: 500,
-                namespace: "callbacks",
-                before: function () {
-                    $('.events').append("<li>before event fired.</li>");
-                },
-                after: function () {
-                    $('.events').append("<li>after event fired.</li>");
-                }
-            });
-
-        });
-    </script>
-    <!----//End-slider-script---->
-    <!-- Slideshow 4 -->
-    @if (ViewBag.alert != null)
-    {
-        <h1>@ViewBag.alert</h1>
+    @@media (max-width: 767px) {
+        .mcon {
+            margin-top: 40%;
+        }
     }
 
 
-    <div id="top" class="callbacks_container">
-        <ul class="rslides" id="slider4">
-            <li>
-                <img src="~/assets/img/slide1.jpg" alt="">
-                <div class="caption">
-                    <div class="slide-text-info">
-                        @*<h1> vegetables </h1>*@
-                    </div>
-                </div>
-            </li>
-            <li>
-                <img src="~/assets/img/slide2.jpg" alt="">
-                <div class="caption">
-                    <div class="slide-text-info">
+    .item:hover {
+        box-shadow: inset 0px 0px 20px 0px #c5ffc7;
+        border-radius: 20px;
+        transform: scale(1.01);
+        z-index: 99;
+    }
+
+    img.image {
+        border-radius: 20px;
+        transform: scale(1);
+        cursor: pointer;
+    }
+
+    .item img {
+        transition: 0.5s all;
+        -webkit-transition: 0.5s all;
+    }
+
+    .item:hover img {
+        border-radius: 20px;
+        transform: scale(1.1);
+        transition: 0.5s all;
+        -webkit-transition: 0.5s all;
+    }
+</style>
 
 
-                    </div>
-                </div>
-            </li>
-            <li>
-                <img src="~/assets/img/slide3.jpg" alt="">
-                <div class="caption">
-                    <div class="slide-text-info">
+<!----start-slider-script---->
+<script src="~/Contents/js/responsiveslides.min.js"></script>
+<script>
+    // You can also use "$(window).load(function() {"
+    $(function () {
+        // Slideshow 4
+        $("#slider4").responsiveSlides({
+            auto: true,
+            pager: true,
+            nav: true,
+            speed: 500,
+            namespace: "callbacks",
+            before: function () {
+                $('.events').append("<li>before event fired.</li>");
+            },
+            after: function () {
+                $('.events').append("<li>after event fired.</li>");
+            }
+        });
 
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <div class="clearfix"> </div>
-    <!----- //End-slider---->
-
-    <div class="article-list">
-        <div class="container">
-            <div class="intro">
-                <h2 class="text-center">Fresh Vegetables</h2>
-                <p class="text-center">Get Free Home Delivry</p>
-            </div>
-
-            <!-- Modal -->
-
-
-            <div class="row articles">
-
-                @if (Model != null)
-                {
-                    foreach (var item in Model)
-                    {
-
-                        <div class="col-6 col-sm-6 col-md-4 col-lg-3 item">
-                            <a href="#">
-                                <img class="img-fluid image" src="@item.p_imge" />
-                            </a>
-                            <h3 class="name">  @item.p_Ename (@item.p_hname) </h3>
-                            @if (item.p_weight_type.Equals("Gram"))
-                            {
-                                <h4 class="price"><span>&#8377</span> @item.p_price /- <span class="weigthcat">@item.p_weight_type</span>(250g) .</h4>
-                            }
-                            else if (item.p_weight_type.Equals("Kg"))
-                            {
-                                <h4 class="price"><span>&#8377</span> @item.p_price /- <span class="weigthcat">@item.p_weight_type</span>.</h4>
-                            }
-                            else
-                            {
-                                <h4 class="price"><span>&#8377</span> @item.p_price /- <span class="weigthcat">@item.p_weight_type</span>.</h4>
-                            }
-
-                            <div class="example_d" align="center" data-toggle="modal" data-target="#exampleModal">
-                                <input type="hidden" class="id" name="name" value="@item.Product_id" />
-                                <span class="font-weight-bold">Add To Cart</span>
-                            </div>
-                        </div>
-                    }
-                }
+    });
+</script>
+<!----//End-slider-script---->
+<!-- Slideshow 4 -->
 
 
-
-
-            </div>
-        </div>
-    </div>
-
-    <!---- contact ---->
-    <div id="contact" class="contact">
-        <div class="map">
-
-            <div class="contact-info">
-                <div class="container">
-                    <!---- contact-grids ---->
-                    <div class="contact-grids">
-                        <h3>You Can Also Order From Here</h3>
-                        <div class="col-md-5 contact-grid-left">
-                            <h4>contact information</h4>
-                            <ul>
-                                <li><span class="cal"> </span><label>Monday - Friday :</label><small>9:30 AM to 6:30 PM</small></li>
-                                <li><span class="pin"> </span><label>Address :</label><small>Sangam Vihar</small></li>
-                                <li><span class="phone"> </span><label>Phone :</label><small>+91 8826712631</small></li>
-                                <li><span class="mail"> </span><label>Email :</label><small> sunil882671@gmail.com</small></li>
-
-                                @if (User.Identity.IsAuthenticated)
-                                {
-                                    <li>
-                                        <span class="user"> </span>
-                                        @User.Identity.Name
-                                    </li>
-                                    <li>
-                                        <span class="user"> </span>
-                                        @Html.ActionLink("Logout", "Logout", "Login")
-                                    </li>
-                                }
-                            </ul>
-                        </div>
-                        <div class="col-md-7 contact-grid-right">
-                            <h4>Write Your Order List Here</h4>
-                            @using (Html.BeginForm("SendMail", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                            {
-                                <textarea placeholder="list Of Your Order:" rows="2" cols="70" name="Massage" onfocus="if(this.value == 'Message:') this.value='';" onblur="if(this.value == '') this.value='';" required></textarea>
-                                <input type="text" placeholder="Name:" name="Name" autocomplete="off" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required>
-                                <input type="text" placeholder="Phone No:" name="PhoneNo" autocomplete="off" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required>
-                                <input type="text" placeholder="Address:" name="Address" autocomplete="off" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required>
-                                <input type="submit" value="ORDER NOW" />
-                            }
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
-                    <!---- contact-grids ---->
+<div id="top" class="callbacks_container">
+    <ul class="rslides" id="slider4">
+        <li>
+            <img src="~/assets/img/slide1.jpg" alt="">
+            <div class="caption">
+                <div class="slide-text-info">
+                    @*<h1> vegetables </h1>*@
                 </div>
             </div>
-        </div>
-    </div>
+        </li>
+        <li>
+            <img src="~/assets/img/slide2.jpg" alt="">
+            <div class="caption">
+                <div class="slide-text-info">
 
 
-    <!---- contact ---->
-
-    <div class="clearfix"> </div>
-
-    @*@Scripts.Render("~/bundles/jquery")*@
-    @Scripts.Render("~/bundles/bootstrap")
-    <script src="~/assets/Js/myScripts.js"></script>
-    <script>
-                                                                                                                                                                                                                                //$(document).ready(function () {
-
-                                                                                                                                                                                                                                //});
-    </script>
-
-
-
-    <div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    @*<div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>*@
-                    @using (Html.BeginForm())
-                    {
-                        <div class="modal-body">
-                            <div class="row " style="text-align:center">
-                                <div class="col-12 ">
-                                    <a>
-                                        <img class="img-fluid image" id="image" />
-                                    </a>
-                                    <h3 class="name" id="fname"></h3>
-                                    <h4 class="test" id="fprice"></h4>
-                                    <div>
-                                        <input type="hidden" id="id" name="id" value="" />
-                                        <select id="Quantity" class="form-control" name="Quantity" style="margin:0 auto;height:34px"></select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Add Now</button>
-                        </div>
-                    }
                 </div>
             </div>
+        </li>
+        <li>
+            <img src="~/assets/img/slide3.jpg" alt="">
+            <div class="caption">
+                <div class="slide-text-info">
+
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="clearfix"> </div>
+<!----- //End-slider---->
+
+
+<script>
+    $(document).ready(function () {
+        var $qty = $('.qty').val();
+        $(".Add").click(function () {
+            $qty = $('.qty').val();
+            if ($qty > 0 && $qty < 50) {
+
+                $inc = parseInt($qty) + parseInt(1);
+                $qty = $('.qty').val($inc).val();
+            }
+            else {
+                alert("Quantity Exeeds 50")
+            }
+
+        });
+        $(".Sub").click(function () {
+            $qty = $('.qty').val();
+            if ($qty > 1) {
+                $inc = parseInt($qty) - parseInt(1);
+                $qty = $('.qty').val($inc).val();
+            }
+            else {
+                alert("this is minimum value")
+            }
+        });
+        //$('.qty').keypress(function () {
+        //    var $v = $('.qty').val();
+
+        //    $qty = $('.qty').val($v);
+
+        //})
+    });
+</script>
+
+<div class="article-list">
+    <div class="container">
+        <div class="intro">
+            <h2 class="text-center">Fresh Vegetables</h2>
+            <p class="text-center">Get Free Home Delivry</p>
         </div>
 
-        @* this is for cart items *@
-        @*        <a id="myBtn" class="fa fa-shopping-cart" data-toggle="modal" data-target="#myModalcart">*@
-        <a id="myBtn" class="glyphicon glyphicon-shopping-cart" data-toggle="modal" data-target="#myModalcart">
-            @if (ViewBag.count != null)
+        <!-- Modal -->
+
+
+        <div class="row articles">
+
+            @if (Model != null)
             {
-                if (ViewBag.count != 0)
+                foreach (var item in Model)
                 {
-                    <span class="badge">@ViewBag.count</span>
+
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-3 item">
+                        <img class="img-fluid image" src="@item.p_imge" />
+                        <h3 class="name">  @item.p_Ename (@item.p_hname) </h3>
+                        @if (item.p_weight_type.Equals("Gram"))
+                        {
+                            <h4 class="price"><span>&#8377</span> @item.p_price /- <span class="weigthcat">@item.p_weight_type</span>(250g) .</h4>
+                        }
+                        else if (item.p_weight_type.Equals("Kg"))
+                        {
+                            <h4 class="price"><span>&#8377</span> @item.p_price /- <span class="weigthcat">@item.p_weight_type</span>.</h4>
+                        }
+                        else
+                        {
+                            <h4 class="price"><span>&#8377</span> @item.p_price /- <span class="weigthcat">@item.p_weight_type</span>.</h4>
+                        }
+
+                        <div class="example_d" align="center" data-toggle="modal" data-target="#exampleModal">
+                            <input type="hidden" class="id" name="name" value="@item.Product_id" />
+                            <span class="font-weight-bold">Add To Cart</span>
+                        </div>
+                    </div>
                 }
             }
 
 
-        </a>
+        </div>
+        <div class="view text-center">
+            <a href="#">
+                <h3> View All Now </h3>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="article-list">
+    <div class="container">
+        <div class="intro">
+            <h2 class="text-center">Cold Drinks</h2>
+            <p class="text-center">Get Free Home Delivry</p>
+        </div>
+
+        <!-- Modal -->
 
 
-        <div class="modal fade" id="myModalcart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="min-width:100%">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Your Cart Items</h5>
+        <div class="row articles">
+
+            @foreach (var item in ViewBag.tfive)
+            {
+                <div class="col-6 col-sm-6 col-md-4 col-lg-3 item">
+                    <img class="img-fluid image" src="@item.p_imge" />
+                    <h3 class="name">  @item.p_Ename (@item.p_hname) </h3>
+                    <h4 class="price"><span>&#8377</span> @item.p_price /- <span class="weigthcat">@item.p_weight_type</span>.</h4>
+                    <div class="example_d" align="center" data-toggle="modal" data-target="#exampleModal">
+                        <input type="hidden" class="id" name="name" value="@item.Product_id" />
+                        <span class="font-weight-bold">Add To Cart</span>
+                    </div>
+                </div>
+            }
+
+
+            <div class="col-6 col-sm-6 col-md-4 col-lg-3 item">
+                <img src="~/assets/images/50.png" />
+                <h3 class="name">  Pepsi </h3>
+                <h4 class="price"><span>&#8377</span> 40 /- <span class="weigthcat">(Per 500ml)</span>.</h4>
+                <div class="example_d" align="center" data-toggle="modal" data-target="#exampleModal">
+                    <input type="hidden" class="id" name="name" value="49" />
+                    <span class="font-weight-bold">Add To Cart</span>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-4 col-lg-3 item">
+                <img class="img-fluid image" src="~/assets/images/51.png" />
+                <h3 class="name">  Pepsi </h3>
+                <h4 class="price"><span>&#8377</span> 40 /- <span class="weigthcat">(Per 500ml)</span>.</h4>
+                <div class="example_d" align="center" data-toggle="modal" data-target="#exampleModal">
+                    <input type="hidden" class="id" name="name" value="49" />
+                    <span class="font-weight-bold">Add To Cart</span>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-md-4 col-lg-3 item">
+                <img class="img-fluid image" src="~/assets/images/52.png" />
+                <h3 class="name">  Pepsi </h3>
+                <h4 class="price"><span>&#8377</span> 40 /- <span class="weigthcat">(Per 500ml)</span>.</h4>
+                <div class="example_d" align="center" data-toggle="modal" data-target="#exampleModal">
+                    <input type="hidden" class="id" name="name" value="49" />
+                    <span class="font-weight-bold">Add To Cart</span>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="view text-center">
+            <a href="#">
+                <h3> View All Now </h3>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!---- contact ---->
+<div id="contact" class="contact">
+    <div class="map">
+
+        <div class="contact-info">
+            <div class="container">
+                <!---- contact-grids ---->
+                <div class="contact-grids">
+                    <h3>You Can Also Order From Here</h3>
+                    <div class="col-md-5 contact-grid-left">
+                        <h4>contact information</h4>
+                        <ul>
+                            <li><span class="cal"> </span><label>Monday - Friday :</label><small>9:30 AM to 6:30 PM</small></li>
+                            <li><span class="pin"> </span><label>Address :</label><small>Sangam Vihar</small></li>
+                            <li><span class="phone"> </span><label>Phone :</label><small>+91 8826712631</small></li>
+                            <li><span class="mail"> </span><label>Email :</label><small> sunil882671@gmail.com</small></li>
+
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li>
+                                    <span class="user"> </span>
+                                    @User.Identity.Name
+                                </li>
+                                <li>
+                                    <span class="user"> </span>
+                                    @Html.ActionLink("Logout", "Logout", "Login")
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="col-md-7 contact-grid-right">
+                        <h4>Write Your Order List Here</h4>
+                        @using (Html.BeginForm("SendMails", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <textarea placeholder="list Of Your Order:" rows="2" cols="70" name="Ord_Massage" onfocus="if(this.value == 'Message:') this.value='';" onblur="if(this.value == '') this.value='';" required></textarea>
+                            <input type="text" placeholder="Name:" name="Name" autocomplete="off" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required>
+                            <input type="text" placeholder="Phone No:" name="PhoneNo" autocomplete="off" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required>
+                            <input type="text" placeholder="Address:" name="Address" autocomplete="off" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required>
+                            <input type="submit" value="ORDER NOW" />
+                        }
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <!---- contact-grids ---->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!---- contact ---->
+
+<div class="clearfix"> </div>
+
+@*@Scripts.Render("~/bundles/jquery")*@
+@Scripts.Render("~/bundles/bootstrap")
+<script src="~/assets/Js/myScripts.js"></script>
+<script>
+    //$(document).ready(function () {
+
+    //});
+</script>
+
+
+
+<div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content mcon">
+                @*<div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                    </div>
+                    </div>*@
+                @using (Html.BeginForm())
+                {
                     <div class="modal-body">
-                        @{
-                            if (ViewBag.list != null)
-                            {
-
-                                <div class="table-responsive">
-                                    <table class="table ">
-                                        <thead>
-                                            <tr>
-                                                <td>S.N.</td>
-                                                <td>Product </td>
-                                                <td>Price</td>
-                                                <td>Quantity</td>
-                                                <td>Total Amout</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                            @{
-                                                int count = 1;
-                                                double GrandTotal = 0;
-                                                double total = 0;
-                                            }
-                                            @foreach (var item in ViewBag.list)
-                                            {
-                                                <tr>
-                                                    <td>@count</td>
-                                                    <td>
-
-                                                        <img src="@item.p_imge" alt="@item.p_Ename" style="width:100px;" class="img-fluid" />
-                                                    </td>
-
-                                                    <td>&#8377 @item.p_price</td>
-                                                    <td>@item.ct_p_qty</td>
-                                                    @{total = item.p_price * item.ct_p_qty; }
-
-                                                    <td>@total</td>
-
-                                                </tr>
-                                                count++;
-                                                GrandTotal = GrandTotal + total;
-                                            }
-                                            <tr class="text-right font-weight-bold">
-                                                <td colspan="6">Sub-Total: <span>&#8377</span> @GrandTotal</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                        <div class="row " style="text-align:center">
+                            <div class="col-12 ">
+                                <a>
+                                    <img class="img-fluid image" id="image" />
+                                </a>
+                                <h3 class="name" id="fname"></h3>
+                                <h4 class="test" id="fprice"></h4>
+                                <div class="" style="background-color:white; height:100px">
+                                    <input type="hidden" id="id" name="id" value="" />
+                                    <input type="button" name="Sub" class="Sub" value="Sub" />
+                                    <input type="number" name="Quantity" class="qty" value="1" min="1" max="50" autocomplete="off" />
+                                    <input type="button" name="Add" class="Add" value="Add" />
                                 </div>
-
-                            }
-                            else
-                            {
-                                <h2>@ViewBag.empty</h2>
-                            }
-                        }
-
-
-
-                    </div>
-                    @{
-                        if (ViewBag.list != null)
-                        {
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <a href="/Home/Cart" class="btn btn-success">Checkout Now</a>
+                                @*<div>
+                                        <input type="hidden" id="id" name="id" value="" />
+                                        <select id="Quantity" class="form-control" name="Quantity" style="margin:0 auto;height:34px"></select>
+                                    </div>*@
                             </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Add Now</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+
+    @if (ViewBag.alert != null)
+    {
+        <div class="modal md" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body text-center">
+                        @if (ViewBag.alert == "Already Added in your Cart")
+                        {
+                            <h1 style="color:red">@ViewBag.alert</h1>
                         }
                         else
                         {
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                @*<a href="/Home/Cart" class="btn btn-success" disabled >Checkout Now</a>*@
-                            </div>
+                            <h1 style="color:green">@ViewBag.alert</h1>
                         }
-                    }
+
+                    </div>
 
                 </div>
             </div>
         </div>
+    }
+
+
+    @* this is for cart items *@
+    @*        <a id="myBtn" class="fa fa-shopping-cart" data-toggle="modal" data-target="#myModalcart">*@
+    <a id="myBtn" class="glyphicon glyphicon-shopping-cart" data-toggle="modal" data-target="#myModalcart">
+        @if (ViewBag.count != null)
+        {
+            if (ViewBag.count != 0)
+            {
+                <span class="badge">@ViewBag.count</span>
+            }
+        }
+
+
+    </a>
+
+
+    <div class="modal fade" id="myModalcart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="min-width:100%">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Your Cart Items</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @{
+                        if (ViewBag.list != null)
+                        {
+
+                            <div class="table-responsive">
+                                <table class="table ">
+                                    <thead>
+                                        <tr>
+                                            <td>S.N.</td>
+                                            <td>Product </td>
+                                            <td>Price</td>
+                                            <td>Quantity</td>
+                                            <td>Total Amout</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @{
+                                            int count = 1;
+                                            double GrandTotal = 0;
+                                            double total = 0;
+                                        }
+                                        @foreach (var item in ViewBag.list)
+                                        {
+                                            <tr>
+                                                <td>@count</td>
+                                                <td>
+
+                                                    <img src="@item.p_imge" alt="@item.p_Ename" style="width:100px;" class="img-fluid" />
+                                                </td>
+
+                                                <td>&#8377 @item.p_price</td>
+                                                <td>@item.ct_p_qty</td>
+                                                @{total = item.p_price * item.ct_p_qty; }
+
+                                                <td>@total</td>
+
+                                            </tr>
+                                            count++;
+                                            GrandTotal = GrandTotal + total;
+                                        }
+                                        <tr class="text-right font-weight-bold">
+                                            <td colspan="6">Sub-Total: <span>&#8377</span> @GrandTotal</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        }
+                        else
+                        {
+                            <h2>@ViewBag.empty</h2>
+                        }
+                    }
+
+
+
+                </div>
+                @{
+                    if (ViewBag.list != null)
+                    {
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <a href="/Home/Cart" class="btn btn-success">Go to Cart</a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            @*<a href="/Home/Cart" class="btn btn-success" disabled >Checkout Now</a>*@
+                        </div>
+                    }
+                }
+
+            </div>
+        </div>
     </div>
-</body>
-</html>
+</div>
 
+<script>
+    $(function () {
+        $('.md').fadeIn().delay(1000).fadeOut();
+    })
 
-
+</script>

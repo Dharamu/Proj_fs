@@ -4,15 +4,15 @@
     //    Layout = null;
 }
 @{
-    int GrandTotal = 0;
-    int total = 0;
+    double GrandTotal = 0;
+    double gtotal = 0;
 
     if (ViewBag.li != null)
     {
         foreach (var item in ViewBag.li)
         {
-            total = item.p_price * item.ct_p_qty;
-            GrandTotal = GrandTotal + total;
+            gtotal = item.p_price * item.ct_p_qty;
+            GrandTotal = GrandTotal + gtotal;
         }
     }
 
@@ -24,8 +24,15 @@
 
 
 <style>
-    .image {
-        width: 150px;
+
+    @@media screen and (min-width: 767px) {
+        .pimage {
+            max-width: 150px;
+        }
+    }
+    .edt , .remv {
+        border-radius:20px;
+
     }
 </style>
 
@@ -36,14 +43,21 @@
 
 
 
-    <div class="modalj" id="myModalcart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="min-width:500px">
+    <div class="modalj" id="myModalcart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="min-width:90%">
         <div class="" role="document" style="width:90%; margin:0 auto   ">
             <div class="modal-content">
+                @*<div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Your Cart Items</h5>
+            <h3>
+                <span aria-hidden="true">Sub-Total: <span>&#8377</span> @GrandTotal</span>
+            </h3>
+        </div>*@
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Your Cart Items</h5>
-                    <h3>
+                    <h4 class="modal-title" id="exampleModalLabel">Your Cart Items</h4>
+                    <div class="close" aria-label="Close">
+                        @*<span aria-hidden="true">&times;</span>*@
                         <span aria-hidden="true">Sub-Total: <span>&#8377</span> @GrandTotal</span>
-                    </h3>
+                    </div>
                 </div>
 
                 <div class="modal-body">
@@ -59,6 +73,8 @@
                                             <td>Product </td>
                                             <td>Price</td>
                                             <td>Quantity</td>
+                                            <td>Total</td>
+                                            <td>Edit/Remove</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -69,11 +85,8 @@
                                             <tr>
                                                 <td>@count</td>
                                                 <td>
-                                                    <img src="@item.p_imge" alt="@item.p_Ename" width="100" class="image" />
+                                                    <img src="@item.p_imge" alt="@item.p_Ename"  class="pimage img-fluid img-responsive" />
                                                     <br />
-                                                    <input type="hidden" class="id" name="pid" value="@item.Product_id" />
-                                                    <button type="button" class="btn btn-warning glyphicon glyphicon-pencil edt" align="center" data-toggle="modal" data-target="#modalForEdit"></button>
-                                                    <button type="button" class="btn btn-danger  glyphicon glyphicon-remove remv"></button>
 
                                                 </td>
                                                 <td class="price">
@@ -91,11 +104,21 @@
                                                         Kg
                                                     </span>
                                                 </td>
+                                                @{
+                                                    double total;
+                                                    total = item.p_price * item.ct_p_qty;
+                                                }
+                                                <td>@total</td>
+                                                <td>
+                                                    <input type="hidden" class="id" name="pid" value="@item.Product_id" />
+                                                    <button type="button" class="btn btn-warning glyphicon glyphicon-pencil edt" align="center" data-toggle="modal" data-target="#modalForEdit"></button>
+                                                    <button type="button" class="btn btn-danger  glyphicon glyphicon-remove remv"></button>
+                                                </td>
                                             </tr>
                                             count++;
                                         }
                                         <tr class="text-right font-weight-bold">
-                                            <td colspan="5">Sub-Total: <span>&#8377</span> @GrandTotal</td>
+                                            <td colspan="6">Sub-Total: <span>&#8377</span> @GrandTotal</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -123,7 +146,7 @@
 
     @*div of edt cart modal*@
     <div class="modal fade" id="modalForEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document" style="top:20%">
+        <div class="modal-dialog" role="document" style="top:30%; margin:0 auto">
             <div class="modal-content">
 
                 @using (Html.BeginForm())
@@ -188,20 +211,20 @@
                     console.log(data);
                     //alert(data);
                     datan = JSON.parse(data);
-                    var type = typeof(datan);
+                    var type = typeof (datan);
                     //alert(type);
                     tableBody = $("table tbody");
                     tableBody.empty();
                     $.each(datan, function () {
-                        
+
                         markup = "<tr><td>" + lineNo + "</td>"
-                            + 1 + " <td> <img src='" + this.p_imge + "' alt='tem.p_Ename' width='100' class='image' />  <input type='hidden' class='id' name='pid' value='item.Product_id' /> <button type='button' class='btn btn-warning glyphicon glyphicon-pencil edt' align='center' data-toggle='modal' data-target='#modalForEdit'></button> <button type='button' class='btn btn-danger  glyphicon glyphicon-remove remv'></button></td > <td ><span class='p'>&#8377 " + this.p_price + "/-</span><span class='p'> kg </span></td > <td ><span class='quantity'>" + this.ct_p_qty +"</span><span class='wit'> kg </span></td > </tr > ";
+                            + 1 + " <td> <img src='" + this.p_imge + "' alt='tem.p_Ename' width='100' class='image' />  <input type='hidden' class='id' name='pid' value='item.Product_id' /> <button type='button' class='btn btn-warning glyphicon glyphicon-pencil edt' align='center' data-toggle='modal' data-target='#modalForEdit'></button> <button type='button' class='btn btn-danger  glyphicon glyphicon-remove remv'></button></td > <td ><span class='p'>&#8377 " + this.p_price + "/-</span><span class='p'> kg </span></td > <td ><span class='quantity'>" + this.ct_p_qty + "</span><span class='wit'> kg </span></td > </tr > ";
 
                         //alert(markup);
 
                         lineNo++;
-                                                        
-                        
+
+
 
                         tableBody.append(markup);
 
@@ -252,7 +275,7 @@
                 SubmitData(obj);
 
                 location.reload(true);
-                $('.notify').modal().hide(5000);
+                $('.notify').modal().delay(5000).fadeOut();
             }
         });
 
@@ -263,7 +286,7 @@
                 method: "POST",
                 data: obj,
                 success: function (res) {
-                    $('.notify').modal().show();
+                    $('.notify').modal().fadeIn();
                     //$('#notify p').text('Successfully Removed').fadeIn().fadeOut(slow);
                 },
                 error: function (err) {

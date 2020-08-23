@@ -1,0 +1,110 @@
+﻿@model IEnumerable<MODALobj.newProduct>
+
+@{
+    Layout = "~/Areas/ControlPanel/Views/Shared/_Layout.cshtml";
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Product_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.p_Ename)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.p_price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.p_weight_type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.p_imge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.p_hname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.status.Equals("Active"))
+        {
+            <tr style="color:green;">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.p_Ename)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.p_price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.p_weight_type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.p_imge)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.p_hname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.status)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Product_id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Product_id }) |
+                    @Html.ActionLink("Disactivate", "Toggle", new { id = item.Product_id })
+                </td>
+            </tr>
+        }
+        else
+        {
+            <tr style="color:gray;">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.p_Ename)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.p_price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.p_weight_type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.p_imge)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.p_hname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.status)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Product_id }, new { @class = "disabled" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Product_id }) |
+                    @Html.ActionLink("Activate", "Toggle", new { id = item.Product_id })
+                </td>
+            </tr>
+        }
+    }
+
+</table>

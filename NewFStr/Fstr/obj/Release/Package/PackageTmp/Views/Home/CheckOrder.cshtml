@@ -4,33 +4,34 @@
     Layout = "~/Views/Shared/_DeshBoard.cshtml";
 }
 
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Order_id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order_Num)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.u_id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ItemsNum)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TotalQlty)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GrandTotalAmout)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Order_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order_Num)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.u_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemsNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalQlty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GrandTotalAmout)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Order_id)
@@ -50,17 +51,31 @@
             <td>
                 @Html.DisplayFor(modelItem => item.GrandTotalAmout)
             </td>
-            <td>
-                @*@Html.DisplayFor(modelItem => item.Status)*@
-                Not Delevered
 
-            </td>
+            @if (item.Status == "Delevered")
+            {
+                <td style="color:green">
+                    <p>@Html.DisplayFor(modelItem => item.Status)</p>
+                </td>
+            }
+            else if (item.Status == "Not Delevered")
+            {
+                <td style="color:red">
+                    <p>@Html.DisplayFor(modelItem => item.Status)</p>
+                </td>
+            }
+            else
+            {
+                <td style="color:darkgoldenrod">
+                    <p>@Html.DisplayFor(modelItem => item.Status)</p>
+                </td>
+            }
             @*<td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>*@
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>*@
         </tr>
     }
-    
-    </table>
+
+</table>

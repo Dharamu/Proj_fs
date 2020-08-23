@@ -1,0 +1,89 @@
+﻿@model MODALobj.newProduct
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/ControlPanel/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Product_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.p_Ename)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.p_Ename)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.p_price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.p_price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.p_weight_type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.p_weight_type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.p_imge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.p_imge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.p_hname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.p_hname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
